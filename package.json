@@ -11,8 +11,16 @@
     "lint:commit": "commitlint --edit ",
     "prepare": "husky install"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Palaxx/tap-data-provider.git"
+  },
+  "keywords": ["node-tap", "tap", "data provider", "test", "unit test"],
   "author": "Michele Palamidessi <michele.palamidessi@protonmail.com>",
+  "bugs": {
+    "url": "https://github.com/Palaxx/tap-data-provider/issues"
+  },
+  "homepage": "https://github.com/Palaxx/tap-data-provider/readme",
   "license": "ISC",
   "devDependencies": {
     "tap": "^16.3.4",
