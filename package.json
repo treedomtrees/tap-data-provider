@@ -4,12 +4,28 @@
   "description": "Data provider support for node-tap test",
   "main": "index.js",
   "scripts": {
-    "test": "tap 'test/**/**.test.js'"
+    "test": "tap 'test/**/**.test.js'",
+    "lint": "eslint .",
+    "lint:fix": "npm run lint -- --fix",
+    "lint:staged": "lint-staged",
+    "lint:commit": "commitlint --edit ",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "Michele Palamidessi <michele.palamidessi@protonmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "tap": "^16.3.4"
+    "tap": "^16.3.4",
+    "@commitlint/cli": "^17.6.3",
+    "@commitlint/config-conventional": "^17.6.3",
+    "eslint": "^8.40.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "husky": "^8.0.3",
+    "lint-staged": "13.2.2"
   }
 }
