@@ -1,0 +1,15 @@
+{
+  "name": "tap-data-provider",
+  "version": "0.0.1",
+  "description": "Data provider support for node-tap test",
+  "main": "index.js",
+  "scripts": {
+    "test": "tap 'test/**/**.test.js'"
+  },
+  "keywords": [],
+  "author": "Michele Palamidessi <michele.palamidessi@protonmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "tap": "^16.3.4"
+  }
+}
