@@ -1,50 +1,34 @@
 'use strict'
 
 const t = require('tap')
-
-// const tap = require('tap')
 const tdp = require('../index')
+tdp(t)
 
-t.test('It should run tap test, for each records in data provider', (t) => {
-  const testRun = {
-    '#1 This is a test': false,
-    '#2 This is a test': false,
-  }
-  const fakeTapInstance = { fakeData: true }
-  const mockedTap = {
-    test: (name, callback) => {
-      testRun[name] = true
-      callback(fakeTapInstance)
-    },
-  }
-  const dataSource = [
-    [{ value: 1 }, { value: 2 }],
-    [{ value: 2 }, { value: 4 }],
-  ]
-  tdp(mockedTap, dataSource).test(
-    'This is a test',
-    (tap, input, output, index) => {
-      t.equal(
-        tap,
-        fakeTapInstance,
-        'First params should be the fake tap instance'
-      )
-      t.equal(
-        input.value,
-        dataSource[index][0].value,
-        'Input params should be the same of the current data source element'
-      )
-      t.equal(
-        output.value,
-        dataSource[index][1].value,
-        'Input params should be the same of the current data source element'
-      )
-    }
-  )
+t.test('It should decorate tap with testDP method', async () => {
+  t.type(t.testDP, 'function', 'testDP should be of type function')
+})
 
-  t.equal(
-    Object.values(testRun).every((called) => called),
-    true
-  )
+t.test('It should expose a function which accept array source', async () => {
+  const source = [[1, 2], [3, 4]]
+  t.testDP('This is a test name', source, (tap, input, output, index) => {
+    t.type(tap, 'object', 'First params should be of type object')
+    t.equal(tap.name, `This is a test name with data set #${index} ${JSON.stringify(source[index])}`)
+    t.equal(input, source[index][0], 'Input should be the first element of the current source')
+    t.equal(output, source[index][1], 'Output should be the second element of the current source')
+    tap.end()
+  })
+  t.end()
+})
+
+t.test('It should expose a function which accept function source', async () => {
+  const dataSource = () => ([[1, 2], [3, 4]])
+  const source = dataSource()
+  t.testDP('This is a test name', dataSource, (tap, input, output, index) => {
+    t.type(tap, 'object', 'First params should be of type object')
+    t.equal(tap.name, `This is a test name with data set #${index} ${JSON.stringify(source[index])}`)
+    t.equal(input, source[index][0], 'Input should be the first element of the current source')
+    t.equal(output, source[index][1], 'Output should be the second element of the current source')
+    tap.end()
+  })
   t.end()
 })
