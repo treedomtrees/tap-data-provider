@@ -1,6 +1,6 @@
 'use strict'
 
-const testDP = require('./lib/testDP')
-module.exports = (tap, dataSource) => {
-  tap.Test.prototype.addAssert('testDP', 3, testDP)
+const tapDecorator = require('./lib/tapDecorator')
+module.exports = {
+  tapDecorator,
 }

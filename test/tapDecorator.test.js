@@ -2,8 +2,8 @@
 
 const t = require('tap')
 
-const tdp = require('../index')
-tdp(t)
+const { tapDecorator } = require('../index')
+tapDecorator(t)
 
 t.test('It should decorate tap with testDP method', async () => {
   t.type(t.testDP, 'function', 'testDP should be of type function')
