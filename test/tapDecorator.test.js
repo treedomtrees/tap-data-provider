@@ -5,8 +5,8 @@ const t = require('tap')
 const { tapDecorator } = require('../index')
 tapDecorator(t)
 
-t.test('It should decorate tap with testDP method', async () => {
-  t.type(t.testDP, 'function', 'testDP should be of type function')
+t.test('It should decorate tap with tests method', async () => {
+  t.type(t.tests, 'function', 'tests should be of type function')
 })
 
 t.test('It should expose a function which accept array source', async () => {
@@ -14,7 +14,7 @@ t.test('It should expose a function which accept array source', async () => {
     [1, 2],
     [3, 4],
   ]
-  t.testDP('This is a test name', source, (tap, input, output, index) => {
+  t.tests('This is a test name', source, (tap, input, output, index) => {
     t.type(tap, 'object', 'First params should be of type object')
     t.equal(
       tap.name,
@@ -43,7 +43,7 @@ t.test('It should expose a function which accept function source', async () => {
     [3, 4],
   ]
   const source = dataSource()
-  t.testDP('This is a test name', dataSource, (tap, input, output, index) => {
+  t.tests('This is a test name', dataSource, (tap, input, output, index) => {
     t.type(tap, 'object', 'First params should be of type object')
     t.equal(
       tap.name,
