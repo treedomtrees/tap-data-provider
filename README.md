@@ -12,7 +12,7 @@ npm install tap-data-provider
 The module will add a new ```tests``` method which accept the following params:
 - **name**: The name of test, same of the original tap test function
 - **dataSource**: The data with which the tests will be executed. 
-- **fn**: A function similar to the original one, but which receives also an ```input``` and an ```expected``` params
+- **fn**: A function similar to the original one, but which receives also an ```input``` , an ```expected``` and an ```index``` params
 
 Datasource can be sent in form of array or **data provider function**. In case of function it must return an array. 
 
@@ -21,9 +21,9 @@ the **expected** params.
 
 ```javascript
 const t = require('tap')
-const {tapDecorator} = require('tap-data-provider')
+const tapDataProvider = require('tap-data-provider')
 
-tapDecorator(t)
+const tap = tapDataProvider(t)
 
 function sum(number1, number2) {
   return number1 + number2
@@ -34,7 +34,7 @@ const datasource = [
   [{n1: 1, n2: 2}, 3],
   [{n1: 3, n2: 2}, 5],
 ]
-t.tests('sum should return right values', datasource, (t, {n1, n2}, expected) => {
+tap.tests('sum should return right values', datasource, (tap, {n1, n2}, expected) => {
   t.equal(sum(n1, n2), expected)
   t.end()
 })
@@ -46,18 +46,14 @@ function sumDataProvider() {
     [{n1: 3, n2: 2}, 5],
   ]
 }
-t.tests('sum should return right values', sumDataProvider, (t, {n1, n2}, expected) => {
+tap.tests('sum should return right values', sumDataProvider, (tap, {n1, n2}, expected) => {
   t.equal(sum(n1, n2), expected)
   t.end()
 })
 ```
 
 ## Caveats
-The tests method is a custom tap assert and created with ```t.addAssert()``` function, and for this reason it must
-return another assert call.
-
-The consequences of this statement is that the number of assertion using **tests** method 
-will 2n + 1, with n is the size of the data provided
+The tests method double the number of total asserts 
 
 ```javascript
 function sumDataProvider() {
@@ -66,20 +62,20 @@ function sumDataProvider() {
     [{n1: 3, n2: 2}, 5],
   ]
 }
-t.tests('sum should return right values', sumDataProvider, (t, {n1, n2}, expected) => {
+tap.tests('sum should return right values', sumDataProvider, (tap, {n1, n2}, expected) => {
   t.equal(sum(n1, n2), expected)
   t.end()
 })
-// 5 asserts
+// 4 asserts
 ```
 
 ```javascript
-t.test('sum should return right values 1', (t) => {
+tap.test('sum should return right values 1', (tap) => {
   t.equal(sum(1, 2), 3)
   t.end()
 })
 
-t.test('sum should return right values 2', (t) => {
+tap.test('sum should return right values 2', (tap) => {
   t.equal(sum(3, 2), 5)
   t.end()
 })
