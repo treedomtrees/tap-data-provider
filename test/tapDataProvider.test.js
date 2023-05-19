@@ -1,13 +1,10 @@
 'use strict'
 
 const { Test } = require('tap')
+const tap = require('tap')
 
 const tdp = require('../lib/index')
-const tap = tdp(require('tap'))
-
-tap.test('It should decorate tap with tests method', async (tap) => {
-  tap.type(tap.tests, 'function', 'tests should be of type function')
-})
+tdp(tap)
 
 tap.test(
   'It should expose a function which accept array source',
@@ -20,7 +17,7 @@ tap.test(
       tap.type(tap, Test, 'First params should be of type tap.Test')
       tap.equal(
         tap.name,
-        `This is a test name with data set #${index} ${JSON.stringify(
+        `This is a test name with data set n.${index} ${JSON.stringify(
           source[index]
         )}`
       )
@@ -55,7 +52,7 @@ tap.test(
         tap.type(tap, Test, 'First params should be of type tap.Test')
         tap.equal(
           tap.name,
-          `This is a test name with data set #${index} ${JSON.stringify(
+          `This is a test name with data set n.${index} ${JSON.stringify(
             source[index]
           )}`
         )

@@ -51,34 +51,3 @@ tap.tests('sum should return right values', sumDataProvider, (tap, {n1, n2}, exp
   t.end()
 })
 ```
-
-## Caveats
-The tests method double the number of total asserts 
-
-```javascript
-function sumDataProvider() {
-  return [
-    [{n1: 1, n2: 2}, 3],
-    [{n1: 3, n2: 2}, 5],
-  ]
-}
-tap.tests('sum should return right values', sumDataProvider, (tap, {n1, n2}, expected) => {
-  t.equal(sum(n1, n2), expected)
-  t.end()
-})
-// 4 asserts
-```
-
-```javascript
-tap.test('sum should return right values 1', (tap) => {
-  t.equal(sum(1, 2), 3)
-  t.end()
-})
-
-tap.test('sum should return right values 2', (tap) => {
-  t.equal(sum(3, 2), 5)
-  t.end()
-})
-
-// 2 asserts
-```
