@@ -1,7 +1,7 @@
 {
-  "name": "tap-data-provider",
-  "version": "0.0.1-beta.0",
-  "description": "Data provider support for node-tap test",
+  "name": "@treedom/tap-data-provider",
+  "version": "1.0.0-beta.0",
+  "description": "Data provider support for node-tap",
   "main": "lib/index.js",
   "scripts": {
     "test": "tap 'test/**/**.test.js'",
@@ -13,21 +13,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Palaxx/tap-data-provider.git"
+    "url": "git+https://github.com/treedomtrees/tap-data-provider.git"
   },
   "keywords": [
     "node-tap",
     "tap",
     "data provider",
-    "test",
-    "unit test"
+    "test"
   ],
-  "author": "Michele Palamidessi <michele.palamidessi@protonmail.com>",
+  "author": "Michele Palamidessi <m.palamidessi@treedom.net>",
   "bugs": {
-    "url": "https://github.com/Palaxx/tap-data-provider/issues"
+    "url": "https://github.com/treedomtrees/tap-data-provider/issues"
   },
-  "homepage": "https://github.com/Palaxx/tap-data-provider/readme",
-  "license": "ISC",
+  "homepage": "https://github.com/treedomtrees/tap-data-provider#readme",
+  "license": "MIT",
+  "private": false,
   "devDependencies": {
     "@commitlint/cli": "^17.6.3",
     "@commitlint/config-conventional": "^17.6.3",
