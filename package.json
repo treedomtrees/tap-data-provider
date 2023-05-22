@@ -1,8 +1,8 @@
 {
   "name": "tap-data-provider",
-  "version": "0.0.1",
+  "version": "0.0.1-beta.0",
   "description": "Data provider support for node-tap test",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "tap 'test/**/**.test.js'",
     "lint": "eslint .",
