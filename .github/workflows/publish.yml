@@ -18,7 +18,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           registry-url: https://registry.npmjs.org/
-          node-version: '16'
+          node-version: '18'
 
       # Configure Git
       - name: Git configuration
@@ -41,7 +41,7 @@ jobs:
       - name: Bump pre-release version
         if: startsWith(github.event.inputs.release-type, 'pre')
         run: |
-          echo "NEW_VERSION=$(npm --no-git-tag-version --preid=beta version $RELEASE_TYPE)"
+          echo "NEW_VERSION=$(npm --no-git-tag-version --preid=beta version $RELEASE_TYPE)" >> $GITHUB_ENV
           echo "RELEASE_TAG=beta" >> $GITHUB_ENV
         env:
           RELEASE_TYPE: ${{ github.event.inputs.release-type }}
