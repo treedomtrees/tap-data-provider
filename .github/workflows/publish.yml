@@ -61,7 +61,7 @@ jobs:
       - name: Publish
         run: npm publish --verbose --access public --tag ${{ env.RELEASE_TAG }}
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.TREEDOM_NPMJS_TOKEN }}
 
       # Push repository changes
       - name: Push changes to repository
