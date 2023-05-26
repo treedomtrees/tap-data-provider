@@ -61,9 +61,7 @@ jobs:
       - name: Publish
         run: npm publish --verbose --access public --tag ${{ env.RELEASE_TAG }}
         env:
-          NPM_AUTH_TOKEN: ${{ secrets.TREEDOM_NPMJS_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.TREEDOM_NPMJS_TOKEN }}
-          FAKE_TOKEN: ${{ secrets.FAKE_TOKEN }}
 
       # Push repository changes
       - name: Push changes to repository

@@ -1,7 +1,7 @@
 {
   "name": "@treedom/tap-data-provider",
-  "version": "1.0.0",
-  "description": "Data provider support for node-tap",
+  "version": "0.0.1",
+  "description": "Extends node-tap with a new tests assertion and introduces the concept of \"DataProvider\" in tests.",
   "main": "lib/index.js",
   "scripts": {
     "test": "tap 'test/**/**.test.js'",
