@@ -1,6 +1,6 @@
 {
   "name": "@treedom/tap-data-provider",
-  "version": "1.0.0-beta.0",
+  "version": "1.0.0",
   "description": "Data provider support for node-tap",
   "main": "lib/index.js",
   "scripts": {
