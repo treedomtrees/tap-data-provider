@@ -5,3 +5,8 @@ coverage
 .idea
 .github
 .husky
+.eslintrc
+.taprc
+.prettierrc
+commitlint.config.js
+.lintstagedrc.json
