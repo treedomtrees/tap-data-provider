@@ -5,7 +5,7 @@ Extends [node-tap](https://node-tap.org/) with a new tests assertion and introdu
 ## Install
 
 ```shell
-npm install tap-data-provider
+npm install @treedom/tap-data-provider
 ```
 
 ## Usage
@@ -27,7 +27,7 @@ In case of object element it should have the propery _input_ and _expected_ that
 
 ```javascript
 const tap = require('tap')
-const tdp = require('tap-data-provider')
+const tdp = require('@treedom/tap-data-provider')
 tdp(tap)
 
 function sum(number1, number2) {
