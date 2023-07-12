@@ -5,7 +5,7 @@ Extends [node-tap](https://node-tap.org/) with a new tests assertion and introdu
 ## Install
 
 ```shell
-npm install @treedom/tap-data-provider
+npm install @treedom/tap-data-provider -D
 ```
 
 ## Usage
